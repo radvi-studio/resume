@@ -1,0 +1,304 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AmirAli Hooshangi | Radvi Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#1B36B4;
+    --secondary:#FF7C00;
+    --bg:#0B0F1A;
+    --card:#111827;
+    --text:#ffffff;
+    --muted:#B8C1EC;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Vazirmatn',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+    radial-gradient(circle at top right,#1B36B420,transparent 35%),
+    radial-gradient(circle at bottom left,#FF7C0010,transparent 25%);
+}
+
+.hero{
+    text-align:center;
+    max-width:800px;
+}
+
+.logo{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:4px solid var(--primary);
+    object-fit:cover;
+    margin-bottom:25px;
+    box-shadow:0 0 40px #1B36B460;
+}
+
+h1{
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.highlight{
+    color:var(--primary);
+}
+
+.subtitle{
+    color:var(--secondary);
+    font-size:1.2rem;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.description{
+    color:var(--muted);
+    line-height:2;
+    font-size:1rem;
+    margin-bottom:35px;
+}
+
+.btns{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.primary-btn{
+    background:var(--primary);
+    color:white;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    border:2px solid var(--secondary);
+    color:var(--secondary);
+}
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:50px;
+    color:var(--primary);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.06);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--primary);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.skills span{
+    background:#1B36B420;
+    border:1px solid #1B36B450;
+    padding:10px 15px;
+    border-radius:10px;
+    display:inline-block;
+    margin:8px;
+}
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.social{
+    color:var(--secondary);
+    text-decoration:none;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+
+h1{
+    font-size:2.2rem;
+}
+
+.subtitle{
+    font-size:1rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="hero">
+
+<img src="profile.jpg" class="logo">
+
+<h1>
+AmirAli <span class="highlight">Hooshangi</span>
+</h1>
+
+<p class="subtitle">
+Video Editor | Content Creator | Creative Media
+</p>
+
+<p class="description">
+فعال در حوزه تدوین ویدیو، تولید محتوا، طراحی سایت
+و خدمات رسانه‌ای. تمرکز من روی خلق محتوای حرفه‌ای،
+تبلیغاتی و خلاقانه برای برندها و کسب‌وکارها است.
+</p>
+
+<div class="btns">
+
+<a href="AmirAli%20Hooshangi.pdf"
+target="_blank"
+class="btn primary-btn">
+دانلود رزومه
+</a>
+
+<a href="https://instagram.com/"
+target="_blank"
+class="btn secondary-btn">
+اینستاگرام
+</a>
+
+</div>
+
+</div>
+</div>
+</header>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">
+مهارت‌ها
+</h2>
+
+<div class="skills" style="text-align:center">
+
+<span>Adobe Premiere Pro</span>
+<span>After Effects</span>
+<span>Content Creation</span>
+<span>Video Editing</span>
+<span>Photography</span>
+<span>Website Design</span>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">
+خدمات
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>تدوین ویدیو</h3>
+<p>
+تدوین حرفه‌ای ریلز، تبلیغات،
+پادکست، موزیک ویدیو و محتوای اینستاگرامی
+</p>
+</div>
+
+<div class="card">
+<h3>تولید محتوا</h3>
+<p>
+ایده‌پردازی، سناریونویسی و
+تولید محتوای حرفه‌ای برای برندها
+</p>
+</div>
+
+<div class="card">
+<h3>طراحی سایت</h3>
+<p>
+طراحی سایت معرفی خدمات،
+رزومه و صفحات فرود
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© Radvi Studio</p>
+<a class="social" href="#">
+Instagram</a>
+</footer>
+
+</body>
+</html>
+```
