@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -7,298 +6,855 @@
 <title>AmirAli Hooshangi | Radvi Studio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
-    --primary:#1B36B4;
-    --secondary:#FF7C00;
-    --bg:#0B0F1A;
-    --card:#111827;
-    --text:#ffffff;
-    --muted:#B8C1EC;
+  --primary:#1B36B4;
+  --secondary:#FF7C00;
+  --bg:#0B0F1A;
+  --card:#111827;
+  --card2:#0f1520;
+  --text:#ffffff;
+  --muted:#B8C1EC;
+  --border:rgba(255,255,255,0.07);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
 
 body{
-    font-family:'Vazirmatn',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  background:rgba(11,15,26,0.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:68px;
 }
 
+.nav-links{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:500;
+  transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#fff;
+}
+
+.nav-links li:first-child a{
+  color:var(--primary);
+  font-weight:700;
+}
+
+.nav-cta{
+  background:var(--primary);
+  color:#fff !important;
+  padding:10px 22px;
+  border-radius:10px;
+  font-weight:700 !important;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  font-size:.9rem;
+  transition:.2s;
+}
+
+.nav-cta:hover{ transform:translateY(-2px); opacity:.9; }
+
+/* ── HERO ── */
 header{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:
-    radial-gradient(circle at top right,#1B36B420,transparent 35%),
-    radial-gradient(circle at bottom left,#FF7C0010,transparent 25%);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:68px;
+  background:
+    radial-gradient(circle at 70% 20%,#1B36B425,transparent 40%),
+    radial-gradient(circle at 20% 80%,#FF7C0010,transparent 30%);
 }
 
 .hero{
-    text-align:center;
-    max-width:800px;
+  text-align:center;
+  max-width:720px;
+  padding:0 20px;
+}
+
+.logo-wrap{
+  position:relative;
+  display:inline-block;
+  margin-bottom:28px;
 }
 
 .logo{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    border:4px solid var(--primary);
-    object-fit:cover;
-    margin-bottom:25px;
-    box-shadow:0 0 40px #1B36B460;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  border:3px solid var(--primary);
+  object-fit:cover;
+  display:block;
+  background:#1B36B430;
+}
+
+/* fallback logo icon if no image */
+.logo-placeholder{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  border:3px solid var(--primary);
+  background:linear-gradient(135deg,#0d1a4a,#1B36B4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 28px;
+  box-shadow:0 0 50px #1B36B445;
+}
+
+.logo-placeholder svg{
+  width:70px;
+  height:70px;
 }
 
 h1{
-    font-size:3rem;
-    font-weight:800;
-    margin-bottom:10px;
+  font-size:2.8rem;
+  font-weight:800;
+  margin-bottom:10px;
+  letter-spacing:-.5px;
 }
 
-.highlight{
-    color:var(--primary);
-}
+.highlight{ color:var(--secondary); }
 
 .subtitle{
-    color:var(--secondary);
-    font-size:1.2rem;
-    margin-bottom:20px;
-    font-weight:500;
+  color:var(--secondary);
+  font-size:1.05rem;
+  margin-bottom:18px;
+  font-weight:600;
+  letter-spacing:.5px;
 }
 
 .description{
-    color:var(--muted);
-    line-height:2;
-    font-size:1rem;
-    margin-bottom:35px;
+  color:var(--muted);
+  line-height:2;
+  font-size:.95rem;
+  margin-bottom:32px;
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .btns{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .btn{
-    text-decoration:none;
-    padding:14px 28px;
-    border-radius:12px;
-    font-weight:700;
-    transition:.3s;
+  text-decoration:none;
+  padding:14px 28px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:.95rem;
+  transition:.3s;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-family:'Vazirmatn',sans-serif;
 }
 
 .primary-btn{
-    background:var(--primary);
-    color:white;
+  background:var(--primary);
+  color:white;
 }
 
-.primary-btn:hover{
-    transform:translateY(-3px);
-}
+.primary-btn:hover{ transform:translateY(-3px); box-shadow:0 8px 25px #1B36B450; }
 
 .secondary-btn{
-    border:2px solid var(--secondary);
-    color:var(--secondary);
+  border:2px solid var(--secondary);
+  color:var(--secondary);
+  background:transparent;
 }
 
+.secondary-btn:hover{ background:#FF7C0015; transform:translateY(-3px); }
+
+/* ── STATS ── */
+.stats-section{
+  padding:0 5% 80px;
+}
+
+.stats-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:40px 30px;
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.stat-item{
+  text-align:center;
+  border-left:1px solid var(--border);
+  padding:10px 20px;
+}
+
+.stat-item:last-child{ border-left:none; }
+
+.stat-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:2px solid var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+  color:var(--primary);
+}
+
+.stat-icon svg{ width:20px; height:20px; }
+
+.stat-num{
+  font-size:2rem;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+/* ── SECTIONS SHARED ── */
 section{
-    padding:90px 0;
+  padding:90px 5%;
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.section-label{
+  text-align:center;
+  color:var(--secondary);
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:10px;
+  text-transform:uppercase;
 }
 
 .section-title{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:50px;
-    color:var(--primary);
+  text-align:center;
+  font-size:1.9rem;
+  font-weight:800;
+  margin-bottom:14px;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.section-divider{
+  width:50px;
+  height:3px;
+  background:var(--secondary);
+  border-radius:3px;
+  margin:0 auto 50px;
 }
 
-.card{
-    background:var(--card);
-    padding:30px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,.06);
-    transition:.3s;
+/* ── SKILLS ── */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    border-color:var(--primary);
+.skill-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px 20px 22px;
+  text-align:center;
+  transition:.3s;
 }
 
-.card h3{
-    margin-bottom:15px;
+.skill-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--primary);
+  box-shadow:0 10px 30px #1B36B420;
 }
 
-.card p{
-    color:var(--muted);
-    line-height:1.9;
+.skill-icon{
+  width:56px;
+  height:56px;
+  border-radius:12px;
+  background:#1B36B420;
+  border:1px solid #1B36B450;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+  font-size:1.1rem;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.skills span{
-    background:#1B36B420;
-    border:1px solid #1B36B450;
-    padding:10px 15px;
-    border-radius:10px;
-    display:inline-block;
-    margin:8px;
+.skill-name{
+  font-weight:700;
+  margin-bottom:14px;
+  font-size:.95rem;
 }
 
+.skill-bar-bg{
+  background:#1B36B415;
+  border-radius:8px;
+  height:5px;
+  overflow:hidden;
+  margin-bottom:6px;
+}
+
+.skill-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),#4a6ff5);
+  border-radius:8px;
+  transition:width 1s ease;
+}
+
+.skill-pct{
+  color:var(--muted);
+  font-size:.8rem;
+  text-align:right;
+}
+
+/* ── SERVICES ── */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.service-card{
+  background:var(--card);
+  padding:32px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--primary);
+  box-shadow:0 12px 35px #1B36B425;
+}
+
+.service-icon{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.service-card h3{
+  margin-bottom:12px;
+  font-size:1.05rem;
+}
+
+.service-card p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:.9rem;
+}
+
+/* ── PORTFOLIO / WORKS ── */
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.portfolio-card{
+  background:var(--card);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.portfolio-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--secondary);
+}
+
+.portfolio-thumb{
+  height:180px;
+  background:linear-gradient(135deg,#0d1a4a,#1B36B430);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.portfolio-info{
+  padding:20px;
+}
+
+.portfolio-info h3{ font-size:.95rem; margin-bottom:8px; }
+.portfolio-info p{ color:var(--muted); font-size:.85rem; line-height:1.7; }
+
+.tag{
+  display:inline-block;
+  background:#1B36B420;
+  border:1px solid #1B36B440;
+  color:var(--primary);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:.75rem;
+  margin-top:10px;
+  font-weight:600;
+}
+
+/* ── CONTACT ── */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+
+.contact-info p{
+  color:var(--muted);
+  line-height:2;
+  margin-bottom:28px;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.contact-item-icon{
+  width:42px;
+  height:42px;
+  background:#1B36B420;
+  border:1px solid #1B36B440;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--primary);
+  flex-shrink:0;
+}
+
+.contact-form{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+}
+
+.form-group{ margin-bottom:18px; }
+
+.form-group label{
+  display:block;
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  background:#0d1420;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:13px 16px;
+  color:#fff;
+  font-family:'Vazirmatn',sans-serif;
+  font-size:.9rem;
+  outline:none;
+  transition:.2s;
+  direction:rtl;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:var(--primary);
+}
+
+.form-group textarea{ height:120px; resize:none; }
+
+.submit-btn{
+  width:100%;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:14px;
+  border-radius:10px;
+  font-family:'Vazirmatn',sans-serif;
+  font-size:.95rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.submit-btn:hover{ opacity:.88; transform:translateY(-2px); }
+
+/* ── FOOTER ── */
 footer{
-    padding:50px 20px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.08);
+  padding:40px 5%;
+  text-align:center;
+  border-top:1px solid var(--border);
 }
 
-.social{
-    color:var(--secondary);
-    text-decoration:none;
-    font-weight:700;
+.footer-socials{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:18px;
 }
 
+.footer-social-link{
+  width:42px;
+  height:42px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  text-decoration:none;
+  transition:.2s;
+}
+
+.footer-social-link:hover{
+  border-color:var(--primary);
+  color:#fff;
+}
+
+.footer-copy{
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.footer-copy span{ color:var(--secondary); font-weight:700; }
+
+/* ── RESPONSIVE ── */
 @media(max-width:768px){
-
-h1{
-    font-size:2.2rem;
+  h1{ font-size:2rem; }
+  .stats-box{ grid-template-columns:repeat(2,1fr); }
+  .stat-item:nth-child(2){ border-left:none; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .nav-links{ display:none; }
 }
-
-.subtitle{
-    font-size:1rem;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="container">
-<div class="hero">
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">خانه</a></li>
+    <li><a href="#about">درباره من</a></li>
+    <li><a href="#services">خدمات</a></li>
+    <li><a href="#portfolio">نمونه‌کارها</a></li>
+    <li><a href="#skills">مهارت‌ها</a></li>
+    <li><a href="#contact">تماس با من</a></li>
+  </ul>
+  <a href="AmirAli%20Hooshangi.pdf" target="_blank" class="nav-cta">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    دانلود رزومه
+  </a>
+</nav>
 
-<img src="profile.jpg" class="logo">
+<!-- HERO -->
+<header id="hero">
+  <div class="hero">
 
-<h1>
-AmirAli <span class="highlight">Hooshangi</span>
-</h1>
+    <div class="logo-placeholder">
+      <!-- R logo SVG -->
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" stroke="#1B36B4" stroke-width="3"/>
+        <text x="40" y="54" text-anchor="middle" font-family="Vazirmatn,sans-serif" font-weight="800" font-size="36" fill="white">R</text>
+        <circle cx="60" cy="55" r="7" fill="#FF7C00"/>
+        <text x="60" y="59" text-anchor="middle" font-family="Vazirmatn,sans-serif" font-weight="800" font-size="9" fill="white">2</text>
+      </svg>
+    </div>
 
-<p class="subtitle">
-Video Editor | Content Creator | Creative Media
-</p>
+    <h1>AmirAli <span class="highlight">Hooshangi</span></h1>
 
-<p class="description">
-فعال در حوزه تدوین ویدیو، تولید محتوا، طراحی سایت
-و خدمات رسانه‌ای. تمرکز من روی خلق محتوای حرفه‌ای،
-تبلیغاتی و خلاقانه برای برندها و کسب‌وکارها است.
-</p>
+    <p class="subtitle">Video Editor | Content Creator | Creative Media</p>
 
-<div class="btns">
+    <p class="description">
+      فعال در حوزه تدوین ویدیو، تولید محتوا، طراحی سایت و خدمات رسانه‌ای.<br>
+      تمرکز من روی خلق محتوای حرفه‌ای، تبلیغاتی و خلاقانه برای برندها و کسب‌وکارها است.
+    </p>
 
-<a href="AmirAli%20Hooshangi.pdf"
-target="_blank"
-class="btn primary-btn">
-دانلود رزومه
-</a>
+    <div class="btns">
+      <a href="AmirAli%20Hooshangi.pdf" target="_blank" class="btn primary-btn">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        دانلود رزومه
+      </a>
+      <a href="https://instagram.com/" target="_blank" class="btn secondary-btn">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        اینستاگرام
+      </a>
+    </div>
 
-<a href="https://instagram.com/"
-target="_blank"
-class="btn secondary-btn">
-اینستاگرام
-</a>
-
-</div>
-
-</div>
-</div>
+  </div>
 </header>
 
-<section>
-<div class="container">
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-box">
 
-<h2 class="section-title">
-مهارت‌ها
-</h2>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      </div>
+      <div class="stat-num">100+</div>
+      <div class="stat-label">ویدیو تدوین شده</div>
+    </div>
 
-<div class="skills" style="text-align:center">
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="stat-num">30+</div>
+      <div class="stat-label">مشتری راضی</div>
+    </div>
 
-<span>Adobe Premiere Pro</span>
-<span>After Effects</span>
-<span>Content Creation</span>
-<span>Video Editing</span>
-<span>Photography</span>
-<span>Website Design</span>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="stat-num">5+</div>
+      <div class="stat-label">سال تجربه</div>
+    </div>
 
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <div class="stat-num">50+</div>
+      <div class="stat-label">پروژه انجام شده</div>
+    </div>
+
+  </div>
 </div>
 
-</div>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">مهارت‌های من</p>
+    <h2 class="section-title">تخصص‌هایی که من را متمایز می‌کند</h2>
+    <div class="section-divider"></div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">Pr</div>
+        <div class="skill-name">Adobe Premiere Pro</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+        <div class="skill-pct">95%</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">Ae</div>
+        <div class="skill-name">After Effects</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📷</div>
+        <div class="skill-name">فیلمبرداری</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        <div class="skill-pct">85%</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🖥</div>
+        <div class="skill-name">طراحی سایت</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        <div class="skill-pct">80%</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">✍️</div>
+        <div class="skill-name">تولید محتوا</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section>
-<div class="container">
+<!-- SERVICES -->
+<section id="services" style="background:#0d1220;">
+  <div class="container">
+    <p class="section-label">خدمات</p>
+    <h2 class="section-title">چه کمکی می‌توانم بکنم؟</h2>
+    <div class="section-divider"></div>
 
-<h2 class="section-title">
-خدمات
-</h2>
+    <div class="services-grid">
 
-<div class="grid">
+      <div class="service-card">
+        <div class="service-icon">🎬</div>
+        <h3>تدوین ویدیو</h3>
+        <p>تدوین حرفه‌ای ریلز، تبلیغات، پادکست، موزیک ویدیو و محتوای اینستاگرامی</p>
+      </div>
 
-<div class="card">
-<h3>تدوین ویدیو</h3>
-<p>
-تدوین حرفه‌ای ریلز، تبلیغات،
-پادکست، موزیک ویدیو و محتوای اینستاگرامی
-</p>
-</div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>تولید محتوا</h3>
+        <p>ایده‌پردازی، سناریونویسی و تولید محتوای حرفه‌ای برای برندها</p>
+      </div>
 
-<div class="card">
-<h3>تولید محتوا</h3>
-<p>
-ایده‌پردازی، سناریونویسی و
-تولید محتوای حرفه‌ای برای برندها
-</p>
-</div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>طراحی سایت</h3>
+        <p>طراحی سایت معرفی خدمات، رزومه و صفحات فرود</p>
+      </div>
 
-<div class="card">
-<h3>طراحی سایت</h3>
-<p>
-طراحی سایت معرفی خدمات،
-رزومه و صفحات فرود
-</p>
-</div>
-
-</div>
-
-</div>
+    </div>
+  </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <p class="section-label">نمونه‌کارها</p>
+    <h2 class="section-title">آخرین پروژه‌های من</h2>
+    <div class="section-divider"></div>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">تصویر پروژه</div>
+        <div class="portfolio-info">
+          <h3>تدوین ریلز اینستاگرام</h3>
+          <p>تدوین و موشن گرافیک برای یک برند پوشاک</p>
+          <span class="tag">Video Editing</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">تصویر پروژه</div>
+        <div class="portfolio-info">
+          <h3>موزیک ویدیو</h3>
+          <p>کارگردانی و تدوین موزیک ویدیو</p>
+          <span class="tag">Creative Media</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">تصویر پروژه</div>
+        <div class="portfolio-info">
+          <h3>سایت معرفی برند</h3>
+          <p>طراحی و توسعه وب‌سایت برای یک کسب‌وکار</p>
+          <span class="tag">Web Design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#0d1220;">
+  <div class="container">
+    <p class="section-label">تماس با من</p>
+    <h2 class="section-title">با من در ارتباط باش</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <p>برای سفارش پروژه، همکاری، یا هر سوالی می‌تونی از طریق فرم یا شبکه‌های اجتماعی باهام در ارتباط باشی.</p>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <span>instagram.com/amirali</span>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          </div>
+          <span>09xxxxxxxx</span>
+        </div>
+
+      </div>
+
+      <div class="contact-form">
+        <div class="form-group">
+          <label>نام شما</label>
+          <input type="text" placeholder="مثلاً علی احمدی">
+        </div>
+        <div class="form-group">
+          <label>ایمیل یا شماره تماس</label>
+          <input type="text" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+          <label>پیام</label>
+          <textarea placeholder="پیام خود را بنویسید..."></textarea>
+        </div>
+        <button class="submit-btn">ارسال پیام</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-<p>© Radvi Studio</p>
-<a class="social" href="#">
-Instagram</a>
+  <div class="footer-socials">
+    <a href="#" class="footer-social-link" title="Instagram">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="#" class="footer-social-link" title="YouTube">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+    </a>
+    <a href="#" class="footer-social-link" title="Telegram">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.8 2L2 10.2l6.4 2.4 2.6 7.4 3.4-3.8 4.8 3.4L21.8 2z"/></svg>
+    </a>
+    <a href="#" class="footer-social-link" title="WhatsApp">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+  <p class="footer-copy">© 2024 . <span>Radvi Studio</span> . تمامی حقوق محفوظ است</p>
 </footer>
 
 </body>
 </html>
-```
