@@ -968,5 +968,37 @@ footer{
   </p>
 </footer>
 
+<script>
+  const counters = document.querySelectorAll('.stat-num');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => observer.observe(el));
+
+  function animateCounter(el) {
+    const text = el.textContent.trim();
+    const suffix = text.replace(/[\d]/g, '');
+    const target = parseInt(text.replace(/\D/g, ''));
+    const duration = 1800;
+    const start = performance.now();
+
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+</script>
+
 </body>
 </html>
