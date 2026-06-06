@@ -633,13 +633,150 @@ footer{
 
 .footer-copy span{ color:var(--secondary); font-weight:700; }
 
+/* ── HAMBURGER BUTTON ── */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:6px;
+  border-radius:8px;
+  transition:.2s;
+  z-index:200;
+}
+
+.hamburger span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  border-radius:2px;
+  transition:transform .3s ease, opacity .3s ease;
+  transform-origin:center;
+}
+
+.hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; transform:scaleX(0); }
+.hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(11,15,26,0.97);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  z-index:150;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+
+.mobile-menu.open{
+  opacity:1;
+  pointer-events:all;
+}
+
+.mobile-menu a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:1.4rem;
+  font-weight:700;
+  padding:14px 40px;
+  border-radius:14px;
+  transition:.2s;
+  width:260px;
+  text-align:center;
+  border:1px solid transparent;
+}
+
+.mobile-menu a:hover{
+  color:#fff;
+  background:rgba(27,54,180,0.2);
+  border-color:rgba(27,54,180,0.4);
+}
+
+.mobile-menu .mobile-cta{
+  margin-top:16px;
+  background:var(--primary);
+  color:#fff !important;
+  border-color:var(--primary) !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.mobile-close{
+  position:absolute;
+  top:22px;
+  left:24px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.mobile-close:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.25);
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   h1{ font-size:2rem; }
+
   .stats-box{ grid-template-columns:repeat(2,1fr); }
   .stat-item:nth-child(2){ border-left:none; }
+
   .contact-grid{ grid-template-columns:1fr; }
+
   .nav-links{ display:none; }
+  .nav-cta{ display:none; }
+  .hamburger{ display:flex; }
+
+  .mobile-menu{ display:flex; }
+
+  .project-logos-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .portfolio-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .skills-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  section{ padding:60px 5%; }
+
+  .section-title{ font-size:1.5rem; }
+}
+
+@media(max-width:400px){
+  .stats-box{ grid-template-columns:1fr; }
+  .stat-item{ border-left:none; }
+  .project-logos-grid{ grid-template-columns:repeat(2,1fr); }
+  .skills-grid{ grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -670,7 +807,32 @@ footer{
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     دانلود رزومه
   </a>
+  <!-- hamburger — order:first puts it on the LEFT in RTL -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="منو" style="order:-1;">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileCloseBtn" aria-label="بستن منو">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <a href="#hero" class="mobile-nav-link">خانه</a>
+  <a href="#about" class="mobile-nav-link">درباره من</a>
+  <a href="#services" class="mobile-nav-link">خدمات</a>
+  <a href="#projects" class="mobile-nav-link">پروژه‌ها</a>
+  <a href="#portfolio" class="mobile-nav-link">نمونه‌کارها</a>
+  <a href="#skills" class="mobile-nav-link">مهارت‌ها</a>
+  <a href="#contact" class="mobile-nav-link">تماس با من</a>
+  <a href="AmirAli%20Hooshangi.pdf" target="_blank" class="mobile-cta">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    دانلود رزومه
+  </a>
+</div>
 
 <!-- HERO -->
 <header id="hero">
@@ -963,6 +1125,34 @@ footer{
 </footer>
 
 <script>
+  // ── HAMBURGER MENU ──
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('mobileCloseBtn');
+
+  function openMenu(){
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => {
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // ── COUNTERS ──
   const counters = document.querySelectorAll('.stat-num');
 
   const observer = new IntersectionObserver((entries) => {
