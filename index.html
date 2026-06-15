@@ -132,16 +132,51 @@ header{
   position:relative;
   display:inline-block;
   margin-bottom:28px;
+  padding:6px;
+}
+
+/* حلقه چرخنده نئونی */
+.logo-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    #1B36B4 0%,
+    #FF7C00 50%,
+    #1B36B4 100%
+  );
+  animation:spin 3s linear infinite;
+  z-index:0;
+}
+
+/* لایه داخلی تیره برای جدا کردن از عکس */
+.logo-wrap::after{
+  content:'';
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  background:var(--bg);
+  z-index:1;
+}
+
+@keyframes spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
 }
 
 .logo{
-  width:130px;
-  height:130px;
+  width:160px;
+  height:160px;
   border-radius:50%;
-  border:3px solid var(--primary);
+  border:none;
   object-fit:cover;
   display:block;
   background:#1B36B430;
+  position:relative;
+  z-index:2;
+  box-shadow:0 0 30px #1B36B440, 0 0 60px #1B36B420;
 }
 
 .logo-placeholder{
@@ -444,8 +479,15 @@ section{
 .portfolio-thumb img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
+  padding:16px;
+}
+
+.portfolio-thumb img.white-bg{
+  background:#ffffff;
+  padding:20px;
+  object-fit:contain;
 }
 
 .portfolio-info{
@@ -979,13 +1021,13 @@ footer{
         </div>
       </div>
       <div class="portfolio-card">
-        <div class="portfolio-thumb">
-          <img src="axon.jpg" alt="خدمات تولید محتوا">
+        <div class="portfolio-thumb" style="background:#ffffff;">
+          <img src="axon.png" alt="خدمات تولید محتوا" class="white-bg">
         </div>
         <div class="portfolio-info">
           <h3>خدمات کامل تولید محتوا</h3>
           <p>صفر تا صد خدمات تولید محتوا و طراحی هویت بصری</p>
-          <span class="tag">Creative Media</span>
+          <span class="tag">Content Creation</span>
         </div>
       </div>
       <div class="portfolio-card">
@@ -995,7 +1037,7 @@ footer{
         <div class="portfolio-info">
           <h3>تدوین ریلز</h3>
           <p>تدوین ویدیو و فیلمبرداری برای برند نقره جات طلوع</p>
-          <span class="tag">Web Design</span>
+          <span class="tag">Video Editing</span>
         </div>
       </div>
     </div>
