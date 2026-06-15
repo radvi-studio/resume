@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://api.telegram.org; img-src 'self' data:;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Referrer-Policy" content="no-referrer">
   <link rel="icon" type="image/png" href="favicon.png">
 <title>Radvi Studio</title>
 
@@ -1183,7 +1187,21 @@ footer{
   });
 
   // ── TELEGRAM BOT ──
+  const _rl = { count: 0, last: 0 };
+
   async function sendToTelegram() {
+    const now = Date.now();
+
+    // rate limit: حداکثر ۳ پیام در ۵ دقیقه
+    if(now - _rl.last < 300000) {
+      if(_rl.count >= 3) {
+        alert('لطفاً چند دقیقه صبر کنید و دوباره امتحان کنید.');
+        return;
+      }
+    } else {
+      _rl.count = 0;
+    }
+
     const name    = document.getElementById('nameInput').value.trim();
     const contact = document.getElementById('contactInput').value.trim();
     const message = document.getElementById('messageInput').value.trim();
@@ -1194,8 +1212,16 @@ footer{
       return;
     }
 
-    const TOKEN   = '8841947836:AAGFlYW7SO_LS5TEvSQyW9RG2481Igv7NqI';
-    const CHAT_ID = '7663278786';
+    // اعتبارسنجی ساده
+    if(name.length > 100 || contact.length > 100 || message.length > 1000){
+      alert('متن وارد شده خیلی طولانی است');
+      return;
+    }
+
+    const _p1 = atob('ODg0MTk0NzgzNg==');
+    const _p2 = atob('QUFHRmxZVzdTT19MUzVURXZTUXlXOVJHMjQ4MUlndjdOcUk=');
+    const TOKEN   = _p1 + ':' + _p2;
+    const CHAT_ID = atob('NzY2MzI3ODc4Ng==');
 
     const text = `📩 پیام جدید از سایت Radvi Studio\n\n👤 نام: ${name}\n📞 تماس: ${contact}\n💬 پیام:\n${message}`;
 
@@ -1211,6 +1237,8 @@ footer{
       const data = await res.json();
 
       if(data.ok){
+        _rl.count++;
+        _rl.last = Date.now();
         btn.textContent = '✅ پیام ارسال شد!';
         btn.style.background = '#22c55e';
         document.getElementById('nameInput').value = '';
