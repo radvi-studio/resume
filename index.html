@@ -7,11 +7,15 @@
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="no-referrer">
-  <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Radvi Studio</title>
 
+<!-- فونت فقط وزن‌های لازم -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="mainamirali.jpg" as="image">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <style>
 :root{
@@ -136,6 +140,12 @@ header{
   position:relative;
   display:inline-block;
   margin-bottom:28px;
+}
+
+/* ── PERFORMANCE ── */
+.skill-card, .service-card, .portfolio-card, .project-logo-card{
+  will-change: transform;
+  contain: layout style;
 }
 
 .logo{
@@ -810,7 +820,7 @@ footer{
 <nav>
   <!-- لوگو سمت راست (چون RTL) -->
   <a href="#hero" class="nav-logo">
-    <img src="profile.jpg" alt="Radvi Studio" class="nav-logo-img">
+    <img src="profile.jpg" alt="Radvi Studio" class="nav-logo-img" loading="lazy">
     <span class="nav-logo-text">Radvi Studio</span>
   </a>
 
@@ -862,7 +872,7 @@ footer{
 <header id="hero">
   <div class="hero">
     <div class="logo-wrap">
-      <img src="mainamirali.jpg" alt="Radvi Studio Logo" class="logo">
+      <img src="mainamirali.jpg" alt="Radvi Studio Logo" class="logo" fetchpriority="high">
     </div>
     <h1><span class="highlight2">AmirAli</span> <span class="highlight2">Hooshangi</span></h1>
     <p class="subtitle">video editor | content creator </p>
@@ -988,7 +998,7 @@ footer{
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <div class="portfolio-thumb" style="background:#ffffff;">
-          <img src="wing.jpg" alt="باشگاه وینگ فینکس">
+          <img loading="lazy" src="wing.jpg" alt="باشگاه وینگ فینکس">
         </div>
         <div class="portfolio-info">
           <h3>تدوین ریلز اینستاگرام</h3>
@@ -998,7 +1008,7 @@ footer{
       </div>
       <div class="portfolio-card">
         <div class="portfolio-thumb" style="background:#ffffff;">
-          <img src="axon.png" alt="خدمات تولید محتوا" class="white-bg">
+          <img loading="lazy" src="axon.png" alt="خدمات تولید محتوا" class="white-bg">
         </div>
         <div class="portfolio-info">
           <h3>خدمات کامل تولید محتوا</h3>
@@ -1008,7 +1018,7 @@ footer{
       </div>
       <div class="portfolio-card">
         <div class="portfolio-thumb">
-          <img src="tolou.jpg" alt="برند نقره جات طلوع">
+          <img loading="lazy" src="tolou.jpg" alt="برند نقره جات طلوع">
         </div>
         <div class="portfolio-info">
           <h3>تدوین ریلز</h3>
@@ -1030,52 +1040,52 @@ footer{
     <div class="project-logos-grid">
 
       <div class="project-logo-card">
-        <img src="p1.png" class="project-logo">
+        <img loading="lazy" src="p1.png" class="project-logo">
         <div class="project-name">شهرداری مشهد</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p2.png" class="project-logo">
+        <img loading="lazy" src="p2.png" class="project-logo">
         <div class="project-name">دانشگاه فردوسی</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p3.png" class="project-logo">
+        <img loading="lazy" src="p3.png" class="project-logo">
         <div class="project-name">کمیته قویترین مردان</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p4.png" class="project-logo">
+        <img loading="lazy" src="p4.png" class="project-logo">
         <div class="project-name">هلدینگ سپیدار</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p5.png" class="project-logo">
+        <img loading="lazy" src="p5.png" class="project-logo">
         <div class="project-name">شرکت پویادنته</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p6.png" class="project-logo">
+        <img loading="lazy" src="p6.png" class="project-logo">
         <div class="project-name">کلینیک زیبایی سلن</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p7.png" class="project-logo">
+        <img loading="lazy" src="p7.png" class="project-logo">
         <div class="project-name">آجیل عدالت</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p8.png" class="project-logo">
+        <img loading="lazy" src="p8.png" class="project-logo">
         <div class="project-name">آکادمی فیزیک پلاس</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p9.png" class="project-logo">
+        <img loading="lazy" src="p9.png" class="project-logo">
         <div class="project-name">گروه هنری ستاره</div>
       </div>
 
       <div class="project-logo-card">
-        <img src="p10.png" class="project-logo">
+        <img loading="lazy" src="p10.png" class="project-logo">
         <div class="project-name">باشگاه وینگ فینکس</div>
       </div>
 
@@ -1262,6 +1272,26 @@ footer{
       }, 3000);
     }
   }
+  // ── LAZY CARD ANIMATIONS ──
+  const cards = document.querySelectorAll('.skill-card, .service-card, .portfolio-card, .project-logo-card');
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        cardObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = 'opacity .4s ease, transform .4s ease';
+    cardObs.observe(c);
+  });
+
+  // ── COUNTERS ──
   const counters = document.querySelectorAll('.stat-num');
 
   const observer = new IntersectionObserver((entries) => {
